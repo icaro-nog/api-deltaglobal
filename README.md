@@ -1,1 +1,1 @@
-# Codeigniter-ReactJS---Delta-Global
+# Codeigniter + ReactJS - Delta Global

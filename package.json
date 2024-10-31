@@ -1,0 +1,28 @@
+{
+  "name": "crud-de-alunos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icaro-nog/Codeigniter-ReactJS---Delta-Global.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icaro-nog/Codeigniter-ReactJS---Delta-Global/issues"
+  },
+  "homepage": "https://github.com/icaro-nog/Codeigniter-ReactJS---Delta-Global#readme",
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "babel-loader": "^9.2.1",
+    "path": "^0.12.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
