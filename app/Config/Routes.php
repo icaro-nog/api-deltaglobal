@@ -11,3 +11,5 @@ $routes->get('/customer', 'StudentController::index');
 $routes->get('/', 'Home::index');
 
 $routes->get('/api/student/test', 'StudentController::test');
+
+$routes->post('/api/student/create', 'StudentController::create');
