@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import ReactDom from 'react-dom';
 
 import Nav from './Nav';
-import Edit from './customer/Edit';
-import Form from './customer/Form';
-import List from './customer/List';
+import Edit from './student/Edit';
+import Form from './student/Form';
+import List from './student/List';
 
 import {
     BrowserRouter as Router,
@@ -20,9 +20,9 @@ export default class Main extends Component {
                 <main>
                     <Nav />
                     <Routes>
-                        <Route path="/customer/index" exact element={<List />} ></Route>
-                        <Route path="/customer/form" element={<Form />} ></Route>
-                        <Route path="/customer/edit/:id" element={<Edit />} ></Route>
+                        <Route path="/student/index" exact element={<List />} ></Route>
+                        <Route path="/student/form" element={<Form />} ></Route>
+                        <Route path="/student/edit/:id" element={<Edit />} ></Route>
                     </Routes>
                 </main>
             </Router>
@@ -30,5 +30,5 @@ export default class Main extends Component {
     }
 }
 
-// <div id="main-customer"></div>
-ReactDom.render(<Main />, document.getElementById('main-customer'));
+// <div id="main-student"></div>
+ReactDom.render(<Main />, document.getElementById('main-student'));

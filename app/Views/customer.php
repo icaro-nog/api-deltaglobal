@@ -15,7 +15,7 @@
 	</h1>
 	<hr>
   <!-- components react -->
-  <div id="main-customer">
+  <div id="main-student">
   </div>
 </div>
 <script src="/dist/main.js" charset="utf-8"></script>
