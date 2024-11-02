@@ -15,3 +15,5 @@ $routes->get('/api/student/test', 'StudentController::test');
 $routes->post('/api/student/create', 'StudentController::create');
 
 $routes->get('api/student/list', 'StudentController::list');
+
+$routes->get('api/student/get/(:num)', 'StudentController::get/$1');

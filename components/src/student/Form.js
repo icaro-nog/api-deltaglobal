@@ -21,7 +21,7 @@ export default class Form extends Component {
         <hr></hr>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="firstName">Nome {this.state.fieldName} </label>
+            <label for="fieldName">Nome </label>
             <input type="text" class="form-control" 
               value={this.state.fieldName}
               onChange={(value)=>this.setState({fieldName:value.target.value})}

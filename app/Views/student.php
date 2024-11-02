@@ -9,7 +9,7 @@
 <body>
 <div class="container" style="padding:20px;">
 	<h1 style="text-align:center;">
-		<a href="/customer">
+		<a href="/student">
 			Full Stack - CodeIgniter 4 & React.js
 		</a>
 	</h1>

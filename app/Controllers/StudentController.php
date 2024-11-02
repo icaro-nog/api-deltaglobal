@@ -19,7 +19,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        return view('customer');
+        return view('student');
     }
 
     public function test(){
@@ -76,6 +76,37 @@ class StudentController extends Controller
 
             return json_encode($response);
             
+        } catch (Exception $e) {
+
+            $response = [
+                'success' => false,
+                'message' => $e->getMessage(),
+            ];
+
+            return json_encode($response);
+        }
+    }
+
+    public function get($id){
+        try {
+            
+            $data = $this->student->find($id);
+
+            if($data){
+                $response = [
+                    'data' => $data,
+                    'success' => true,
+                    'message' => 'Successful load',
+                ];
+            } else {
+                $response = [
+                    'success' => false,
+                    'message' => 'Not found data',
+                ];
+            }
+
+            return json_encode($response);
+
         } catch (Exception $e) {
 
             $response = [

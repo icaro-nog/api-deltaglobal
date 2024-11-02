@@ -33,11 +33,11 @@ export default class List extends Component {
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Address</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Action</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Telefone</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -53,8 +53,8 @@ export default class List extends Component {
                       <td>{data.address}</td>
                       <td>{data.phone}</td>
                       <td>
-                        <Link to={"/student/edit/"+data.id} class="btn btn-light"> Edit </Link>
-                        <Link to="/student/delete" class="btn btn-danger"> Delete </Link>
+                        <Link to={"/student/edit/"+data.id} class="btn btn-light mr-3"> Editar </Link>
+                        <Link to="/student/delete" class="btn btn-danger"> Deletar </Link>
                       </td>
                     </tr>
 
