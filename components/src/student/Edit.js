@@ -52,6 +52,28 @@ const Edit = () => {
             [name]: value
         }));
     };
+
+    const onClickUpdate = () => {
+
+        const url = 'http://localhost:8080/api/student/update/' + id;
+
+        const data = {
+            name: formData.fieldName,
+            email: formData.fieldEmail,
+            phone: formData.fieldPhone,
+            address: formData.fieldAddress,
+            photo: formData.fieldPhoto,
+        }
+
+        axios.put(url, data)
+            .then(response => {
+                alert(response.data.message)
+            })
+            .catch(error => {
+                alert('Erro 500' + error)
+            })
+
+    };
     
     return (
         <div>
@@ -63,6 +85,7 @@ const Edit = () => {
                 <input type="text" class="form-control"
                     value={formData.fieldName}
                     onChange={handleChange}
+                    name='fieldName'
                 />
                 </div>
             </div>
@@ -73,6 +96,7 @@ const Edit = () => {
                     <input type="email" class="form-control" 
                         value={formData.fieldEmail}
                         onChange={handleChange}
+                        name='fieldEmail'
                     />
                 </div>
             </div>
@@ -83,6 +107,7 @@ const Edit = () => {
                     <input type="text" class="form-control" 
                         value={formData.fieldPhone}
                         onChange={handleChange}
+                        name='fieldPhone'
                     />
                 </div>
             </div>
@@ -93,6 +118,7 @@ const Edit = () => {
                     <input type="text" class="form-control" 
                         value={formData.fieldAddress}
                         onChange={handleChange}
+                        name='fieldAddress'
                     />
                 </div>
             </div>
@@ -104,13 +130,14 @@ const Edit = () => {
                     <input type="file"
                         value={formData.fieldPhoto}
                         onChange={handleChange}
+                        name='fieldPhoto'
                     />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                <button class="btn btn-primary btn-block" type="submit">Salvar</button>
+                <button onClick={onClickUpdate} class="btn btn-primary btn-block" type="submit">Salvar</button>
                 </div>
             </div>
         </div>

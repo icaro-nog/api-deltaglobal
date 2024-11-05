@@ -3,7 +3,6 @@
 use CodeIgniter\Controller;
 use App\Models\StudentModel;
 use Exception;
-use PhpParser\Node\Stmt\TryCatch;
 
 class StudentController extends Controller
 {
@@ -104,6 +103,40 @@ class StudentController extends Controller
                     'message' => 'Not found data',
                 ];
             }
+
+            return json_encode($response);
+
+        } catch (Exception $e) {
+
+            $response = [
+                'success' => false,
+                'message' => $e->getMessage(),
+            ];
+
+            return json_encode($response);
+        }
+    }
+
+    public function update($id){
+        try {
+
+            $json = $this->request->getJSON();
+
+            $update = [
+                'name' => $json->name,
+                'email' => $json->email,
+                'phone' => $json->phone,
+                'address' => $json->address,
+                'photo' => $json->photo
+            ];
+
+            $res = $this->student->update($id, $update);
+
+            $response = [
+                'success' => true,
+                'message' => 'Successful update',
+                'res' => $res
+            ];
 
             return json_encode($response);
 
