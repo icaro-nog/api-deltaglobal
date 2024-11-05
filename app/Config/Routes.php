@@ -19,3 +19,5 @@ $routes->get('api/student/list', 'StudentController::list');
 $routes->get('api/student/get/(:num)', 'StudentController::get/$1');
 
 $routes->put('api/student/update/(:num)', 'StudentController::update/$1');
+
+$routes->delete('api/student/delete/(:num)', 'StudentController::delete/$1');

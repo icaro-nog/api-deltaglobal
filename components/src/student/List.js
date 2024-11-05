@@ -43,7 +43,7 @@ export default class List extends Component {
           <tbody>
 
             {
-              this.state.listStudent.map((data)=>{
+              this.state.listStudent.map((data, i)=>{
                 return(
 
                     <tr>
@@ -54,7 +54,7 @@ export default class List extends Component {
                       <td>{data.phone}</td>
                       <td>
                         <Link to={"/student/edit/"+data.id} class="btn btn-light mr-3"> Editar </Link>
-                        <Link to="/student/delete" class="btn btn-danger"> Deletar </Link>
+                        <Link onClick={()=>this.onClickDelete(i, data.id)} class="btn btn-danger"> Deletar </Link>
                       </td>
                     </tr>
 
@@ -67,4 +67,33 @@ export default class List extends Component {
       </section>
     )
   }
+
+  onClickDelete(i, id){
+    var yes = confirm('tem certeza?????')
+
+    if(yes == true){
+
+      const urlDelete = 'http://localhost:8080/api/student/delete/' + id
+
+      axios.delete(urlDelete)
+            .then(response => {
+
+                const res = response.data
+                if(res.success){
+
+                  const list = this.state.listStudent
+                  list.splice(i, 1)
+                  this.setState({listStudent:list})
+  
+                  alert(res.message)
+
+                }
+            })
+            .catch(error => {
+                alert('Erro 500' + error)
+            })
+
+    }
+  }
+
 }

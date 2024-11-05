@@ -150,4 +150,27 @@ class StudentController extends Controller
             return json_encode($response);
         }
     }
+
+    public function delete($id){
+        try {
+
+            $res = $this->student->delete($id);
+
+            $response = [
+                'success' => true,
+                'message' => 'Successful delete',
+                'res' => $res
+            ];
+
+            return json_encode($response);
+
+        } catch (Exception $e) {
+            $response = [
+                'success' => false,
+                'message' => $e->getMessage(),
+            ];
+
+            return json_encode($response);
+        }
+    }
 }
