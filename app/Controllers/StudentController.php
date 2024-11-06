@@ -2,7 +2,10 @@
 
 use CodeIgniter\Controller;
 use App\Models\StudentModel;
+use CodeIgniter\Files\File;
 use Exception;
+
+use function Psy\debug;
 
 class StudentController extends Controller
 {
@@ -56,14 +59,28 @@ class StudentController extends Controller
     public function create(){
         try {
 
-            $json = $this->request->getJSON();
+            $name = $_POST['name'] ?? null;
+            $email = $_POST['email'] ?? null;
+            $phone = $_POST['phone'] ?? null;
+            $address = $_POST['address'] ?? null;
 
+            $img = $_FILES['photo'];
+            
+            if ($img['error'] === 0) {
+
+                $fileExtension = pathinfo($img['name'], PATHINFO_EXTENSION);
+                $newFileName = uniqid('file_', true) . '.' . $fileExtension;
+                $destination = WRITEPATH . 'uploads/' . $newFileName;
+
+                move_uploaded_file($img['tmp_name'], $destination);
+            }
+            
             $insert = [
-                'name' => $json->name,
-                'email' => $json->email,
-                'phone' => $json->phone,
-                'address' => $json->address,
-                'photo' => $json->photo
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'address' => $address,
+                'photo' => $newFileName
             ];
 
             $res = $this->student->insert($insert);
@@ -71,6 +88,7 @@ class StudentController extends Controller
             $response = [
                 'success' => true,
                 'message' => 'Successful save',
+                'res' => $res
             ];
 
             return json_encode($response);

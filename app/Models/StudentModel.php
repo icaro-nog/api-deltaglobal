@@ -17,7 +17,7 @@ class StudentModel extends Model
      'email',
      'phone',
      'address',
-     'filename'
+     'photo'
    ];
 
    protected $useTimestamps = false;

@@ -1,105 +1,132 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-export default class Form extends Component {
+const Form = () => {
 
-  constructor(){
-    super()
-    this.state = {
-      fieldName: '',
-      fieldEmail: '',
-      fieldPhone: '',
-      fieldAddress: '',
-      fieldPhoto: ''
-    }
-  }
+  const [formData, setFormData] = useState({
+    id: 0,
+    fieldName: '',
+    fieldEmail: '',
+    fieldAddress: '',
+    fieldPhone: ''
+  });
 
-  render() {
-    return (
-      <div>
-        <h4>Novo aluno</h4>
-        <hr></hr>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="fieldName">Nome </label>
-            <input type="text" class="form-control" 
-              value={this.state.fieldName}
-              onChange={(value)=>this.setState({fieldName:value.target.value})}
-            />
-          </div>
-        </div>
+  const [file, setFile] = useState('')
+  const [fileName, setFileName] = useState('Choose File')
+  const [selectedFile, setSelectedFile] = useState({
+    filePath: '',
+    fileName: ''
+  })
 
-				<div class="row">
-          <div class="col-md-6 mb-3">
-						<label for="email">E-mail</label>
-	          <input type="email" class="form-control" 
-              value={this.state.fieldEmail}
-              onChange={(value)=>this.setState({fieldEmail:value.target.value})}
-            />
-          </div>
-        </div>
+  const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData(prevState => ({
+          ...prevState,
+          [name]: value
+      }));
+  };
 
-				<div class="row">
-          <div class="col-md-6 mb-3">
-						<label for="phone">Telefone </label>
-	          <input type="text" class="form-control" 
-              value={this.state.fieldPhone}
-              onChange={(value)=>this.setState({fieldPhone:value.target.value})}
-            />
-          </div>
-        </div>
-
-				<div class="row">
-          <div class="col-md-6 mb-3">
-						<label for="address">Endereço</label>
-	          <input type="text" class="form-control" 
-              value={this.state.fieldAddress}
-              onChange={(value)=>this.setState({fieldAddress:value.target.value})}
-            />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-5">
-						<label for="photo">Foto</label>
-            <br/>
-	          <input type="file" 
-              value={this.state.fieldPhoto}
-              onChange={(value)=>this.setState({fieldPhoto:value.target.value})}
-            />
-          </div>
-        </div>
-
-				<div class="row">
-					<div class="col-md-6 mb-3">
-		      	<button class="btn btn-primary btn-block" type="submit"
-              onClick={()=>this.onClickSave()}
-            >Salvar</button>
-					</div>
-				</div>
-      </div>
-    )
-  }
-
-  onClickSave(){
+  const onClickSave = () => {
     const baseUrl = 'http://localhost:8080/api/student/create';
 
-    const dataPost = {
-      name: this.state.fieldName,
-      email: this.state.fieldEmail,
-      phone: this.state.fieldPhone,
-      address: this.state.fieldAddress,
-      photo: this.state.fieldPhoto,
-    }
+    const formDataInstance = new FormData();
+    formDataInstance.append('name', formData.fieldName);
+    formDataInstance.append('email', formData.fieldEmail);
+    formDataInstance.append('phone', formData.fieldPhone);
+    formDataInstance.append('address', formData.fieldAddress);
+    formDataInstance.append('photo', file);
 
-    console.log(dataPost);
+    console.log('formDataInstance')
+    console.log(formDataInstance)
 
-    axios.post(baseUrl, dataPost)
+    axios.post(baseUrl, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(response => {
         alert(response.data.message)
+        console.log(response)
       })
       .catch(error => {
         alert('Erro 500' + error)
       })
   }
+
+  const handleFileSelect = (event) => {
+
+    setFile(event.target.files[0])
+    setFileName(event.target.files[0].name)
+
+  }
+  
+  return (
+    <div>
+      <h4>Novo aluno</h4>
+      <hr></hr>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="fieldName">Nome </label>
+          <input type="text" class="form-control" 
+            value={formData.fieldName}
+            onChange={handleChange}
+            name='fieldName'
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" 
+            value={formData.fieldEmail}
+            onChange={handleChange}
+            name='fieldEmail'
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="phone">Telefone </label>
+          <input type="text" class="form-control" 
+            value={formData.fieldPhone}
+            onChange={handleChange}
+            name='fieldPhone'
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="address">Endereço</label>
+          <input type="text" class="form-control" 
+            value={formData.fieldAddress}
+            onChange={handleChange}
+            name='fieldAddress'
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <label for="photo">Foto</label>
+          <br/>
+          <input type="file" 
+
+            onChange={handleFileSelect}
+
+            id='fieldPhoto'
+            name='fieldPhoto'
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <button class="btn btn-primary btn-block" type="submit"
+            onClick={onClickSave}
+          >Salvar</button>
+        </div>
+      </div>
+    </div>
+  )
 }
+
+export default Form;
