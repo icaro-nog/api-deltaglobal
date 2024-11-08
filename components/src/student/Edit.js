@@ -12,6 +12,15 @@ const Edit = () => {
         fieldPhone: '',
         fieldPhoto: ''
     });
+
+    const [file, setFile] = useState({
+        fieldPhoto: ''
+    })
+    const [fileName, setFileName] = useState('Choose File')
+    const [selectedFile, setSelectedFile] = useState({
+        filePath: '',
+        fileName: ''
+    })
     
     const { id } = useParams();
     
@@ -53,24 +62,34 @@ const Edit = () => {
         }));
     };
 
+    const handleFileSelect = (event) => {
+
+        setFile(event.target.files[0])
+        setFileName(event.target.files[0].name)
+    
+    }
+
     const onClickUpdate = () => {
 
         const url = 'http://localhost:8080/api/student/update/' + id;
 
-        const data = {
-            name: formData.fieldName,
-            email: formData.fieldEmail,
-            phone: formData.fieldPhone,
-            address: formData.fieldAddress,
-            photo: formData.fieldPhoto,
-        }
+        const formDataInstance = new FormData();
+        formDataInstance.append('name', formData.fieldName);
+        formDataInstance.append('email', formData.fieldEmail);
+        formDataInstance.append('phone', formData.fieldPhone);
+        formDataInstance.append('address', formData.fieldAddress);
+        formDataInstance.append('photo', file);
 
-        axios.put(url, data)
+        formDataInstance.append('_method', 'put');
+        
+        axios.post(url, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then(response => {
                 alert(response.data.message)
+                window.location.reload();
             })
             .catch(error => {
                 alert('Erro 500' + error)
+                console.log('catch')
             })
 
     };
@@ -92,7 +111,7 @@ const Edit = () => {
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                            <label for="email">E-mail</label>
+                            <label for="fieldEmail">E-mail</label>
                     <input type="email" class="form-control" 
                         value={formData.fieldEmail}
                         onChange={handleChange}
@@ -103,7 +122,7 @@ const Edit = () => {
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                            <label for="address">Telefone </label>
+                            <label for="fieldPhone">Telefone </label>
                     <input type="text" class="form-control" 
                         value={formData.fieldPhone}
                         onChange={handleChange}
@@ -114,7 +133,7 @@ const Edit = () => {
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                            <label for="address">Endereço</label>
+                            <label for="fieldAddress">Endereço</label>
                     <input type="text" class="form-control" 
                         value={formData.fieldAddress}
                         onChange={handleChange}
@@ -125,13 +144,13 @@ const Edit = () => {
 
             <div class="row">
                 <div class="col-md-6 mb-5">
-                                <label for="photo">Foto</label>
+                                <label for="fieldPhoto">Foto</label>
                     <br/>
                     <input type="file"
-                        value={formData.fieldPhoto}
-                        onChange={handleChange}
+                        onChange={handleFileSelect}
                         name='fieldPhoto'
                     />
+                    <img src={formData.fieldPhoto} width="100" height="150" />
                 </div>
             </div>
 

@@ -59,10 +59,10 @@ class StudentController extends Controller
     public function create(){
         try {
 
-            $name = $_POST['name'] ?? null;
-            $email = $_POST['email'] ?? null;
-            $phone = $_POST['phone'] ?? null;
-            $address = $_POST['address'] ?? null;
+            $name = $this->request->getPost('name') ?? null;
+            $email = $this->request->getPost('email') ?? null;
+            $phone = $this->request->getPost('phone') ?? null;
+            $address = $this->request->getPost('address') ?? null;
 
             $img = $_FILES['photo'];
             
@@ -70,7 +70,7 @@ class StudentController extends Controller
 
                 $fileExtension = pathinfo($img['name'], PATHINFO_EXTENSION);
                 $newFileName = uniqid('file_', true) . '.' . $fileExtension;
-                $destination = WRITEPATH . 'uploads/' . $newFileName;
+                $destination = 'uploads/' . $newFileName;
 
                 move_uploaded_file($img['tmp_name'], $destination);
             }
@@ -109,6 +109,8 @@ class StudentController extends Controller
             
             $data = $this->student->find($id);
 
+            $data['photo'] = 'uploads/' . $data['photo'];
+
             if($data){
                 $response = [
                     'data' => $data,
@@ -138,15 +140,41 @@ class StudentController extends Controller
     public function update($id){
         try {
 
-            $json = $this->request->getJSON();
-
+            $name = $this->request->getPost('name') ?? null;
+            $email = $this->request->getPost('email') ?? null;
+            $phone = $this->request->getPost('phone') ?? null;
+            $address = $this->request->getPost('address') ?? null;
+            
             $update = [
-                'name' => $json->name,
-                'email' => $json->email,
-                'phone' => $json->phone,
-                'address' => $json->address,
-                'photo' => $json->photo
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'address' => $address
             ];
+            
+            if(!empty($_FILES['photo'])){
+
+                $img = $_FILES['photo'];
+
+                if ($img['error'] === 0) {
+                    
+                    $past_photo = 'uploads/' . $this->student->find($id)['photo'];
+        
+                    if (file_exists($past_photo)) {
+                        unlink($past_photo);
+                    }
+    
+                    $fileExtension = pathinfo($img['name'], PATHINFO_EXTENSION);
+                    $newFileName = uniqid('file_', true) . '.' . $fileExtension;
+                    $destination = 'uploads/' . $newFileName;
+    
+                    move_uploaded_file($img['tmp_name'], $destination);
+
+                    $update['photo'] = $newFileName;
+                }
+            } else {
+                $update['photo'] = $this->student->find($id)['photo'];
+            }
 
             $res = $this->student->update($id, $update);
 
@@ -171,6 +199,12 @@ class StudentController extends Controller
 
     public function delete($id){
         try {
+
+            $photo = 'uploads/' . $this->student->find($id)['photo'];
+
+            if (file_exists($photo)) {
+                unlink($photo);
+            }
 
             $res = $this->student->delete($id);
 

@@ -7,10 +7,9 @@ import Form from './student/Form';
 import List from './student/List';
 
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Routes,
-    Route,
-    useParams
+    Route
 } from 'react-router-dom';
 
 export default class Main extends Component {
@@ -30,5 +29,4 @@ export default class Main extends Component {
     }
 }
 
-// <div id="main-student"></div>
 ReactDom.render(<Main />, document.getElementById('main-student'));

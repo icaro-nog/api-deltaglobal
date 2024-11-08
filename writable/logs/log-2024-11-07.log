@@ -1,0 +1,217 @@
+CRITICAL - 2024-11-07 01:31:01 --> TypeError: log_message(): Argument #2 ($message) must be of type string, array given, called in /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php on line 112
+[Method: GET, Route: api/student/get/28]
+in SYSTEMPATH/Common.php on line 772.
+ 1 APPPATH/Controllers/StudentController.php(112): log_message()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->get()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 01:31:07 --> TypeError: log_message(): Argument #2 ($message) must be of type string, array given, called in /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php on line 112
+[Method: GET, Route: api/student/get/27]
+in SYSTEMPATH/Common.php on line 772.
+ 1 APPPATH/Controllers/StudentController.php(112): log_message()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->get()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+ERROR - 2024-11-07 13:46:35 --> mysqli_sql_exception: Not unique table/alias: 'students' in /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php(312): mysqli->query()
+#1 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+#4 /home/inogueira/projetos/CRUD de Alunos/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+#6 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(933): App\Controllers\StudentController->update()
+#7 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#8 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/inogueira/projetos/CRUD de Alunos/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#12 /home/inogueira/projetos/CRUD de Alunos/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2024-11-07 13:46:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+[Method: PUT, Route: api/student/update/3]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:46:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:46:35 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+ERROR - 2024-11-07 13:46:59 --> mysqli_sql_exception: Not unique table/alias: 'students' in /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php(312): mysqli->query()
+#1 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+#4 /home/inogueira/projetos/CRUD de Alunos/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+#6 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(933): App\Controllers\StudentController->update()
+#7 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#8 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/inogueira/projetos/CRUD de Alunos/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#12 /home/inogueira/projetos/CRUD de Alunos/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2024-11-07 13:46:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+[Method: PUT, Route: api/student/update/3]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:46:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:46:59 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+ERROR - 2024-11-07 13:47:00 --> mysqli_sql_exception: Not unique table/alias: 'students' in /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /home/inogueira/projetos/CRUD de Alunos/system/Database/MySQLi/Connection.php(312): mysqli->query()
+#1 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/inogueira/projetos/CRUD de Alunos/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+#4 /home/inogueira/projetos/CRUD de Alunos/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+#6 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(933): App\Controllers\StudentController->update()
+#7 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#8 /home/inogueira/projetos/CRUD de Alunos/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /home/inogueira/projetos/CRUD de Alunos/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/inogueira/projetos/CRUD de Alunos/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#12 /home/inogueira/projetos/CRUD de Alunos/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2024-11-07 13:47:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+[Method: PUT, Route: api/student/update/3]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:47:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 13:47:00 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'students'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/StudentController.php(157): CodeIgniter\Model->__call()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 18:29:48 --> TypeError: log_message(): Argument #2 ($message) must be of type string, CodeIgniter\Database\MySQLi\Result given, called in /home/inogueira/projetos/CRUD de Alunos/app/Controllers/StudentController.php on line 158
+[Method: PUT, Route: api/student/update/3]
+in SYSTEMPATH/Common.php on line 772.
+ 1 APPPATH/Controllers/StudentController.php(158): log_message()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-07 19:07:06 --> Error: Call to a member function select() on array
+[Method: PUT, Route: api/student/update/31]
+in APPPATH/Controllers/StudentController.php on line 154.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\StudentController->update()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')

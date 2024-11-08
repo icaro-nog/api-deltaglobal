@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<title>Welcome to CodeIgniter 4 + React.js!</title>
+	<title>API - Delta Global</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<style> .navbar{margin-bottom: 20px;} </style>
 </head>
 <body>
-<div class="container" style="padding:20px;">
+<div class="container" style="padding:10px;">
 	<h1 style="text-align:center;">
 		<a href="/student">
-			Full Stack - CodeIgniter 4 & React.js
+			API - Delta Global
 		</a>
 	</h1>
 	<hr>

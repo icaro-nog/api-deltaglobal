@@ -37,6 +37,7 @@ export default class List extends Component {
               <th scope="col">E-mail</th>
               <th scope="col">Endereço</th>
               <th scope="col">Telefone</th>
+              <th scope="col">Foto</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -52,6 +53,7 @@ export default class List extends Component {
                       <td>{data.email}</td>
                       <td>{data.address}</td>
                       <td>{data.phone}</td>
+                      <td> <img src={'uploads/' + data.photo} width="30" height="50" /> </td>
                       <td>
                         <Link to={"/student/edit/"+data.id} class="btn btn-light mr-3"> Editar </Link>
                         <Link onClick={()=>this.onClickDelete(i, data.id)} class="btn btn-danger"> Deletar </Link>

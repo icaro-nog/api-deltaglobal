@@ -42,7 +42,7 @@ const Form = () => {
     axios.post(baseUrl, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(response => {
         alert(response.data.message)
-        console.log(response)
+        window.location = 'http://localhost:8080/student#/student/index';
       })
       .catch(error => {
         alert('Erro 500' + error)
@@ -109,9 +109,7 @@ const Form = () => {
           <label for="photo">Foto</label>
           <br/>
           <input type="file" 
-
             onChange={handleFileSelect}
-
             id='fieldPhoto'
             name='fieldPhoto'
           />
