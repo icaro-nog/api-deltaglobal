@@ -8,19 +8,30 @@ use CodeIgniter\Router\RouteCollection;
 
 
  // agrupar
+ // bloquear acesso a rotas protegidas
+
+$routes->group('api', ['filter' => 'auth'], static function($routes) {
+    $routes->get('student/test', 'StudentController::test');
+    
+    $routes->post('student/create', 'StudentController::create');
+    
+    $routes->get('student/list', 'StudentController::list');
+    
+    $routes->get('student/get/(:num)', 'StudentController::get/$1');
+    
+    $routes->post('student/update/(:num)', 'StudentController::update/$1');
+    
+    $routes->delete('student/delete/(:num)', 'StudentController::delete/$1');
+});
+
+$routes->get('/login', 'LoginController::index');
+
+$routes->get('/register', 'RegisterController::register');
+
+$routes->post('api/register/create', 'RegisterController::create');
+
+$routes->post('api/login/store', 'LoginController::store');
  
 $routes->get('/student', 'StudentController::index');
 
 $routes->get('/', 'Home::index');
-
-$routes->get('/api/student/test', 'StudentController::test');
-
-$routes->post('/api/student/create', 'StudentController::create');
-
-$routes->get('api/student/list', 'StudentController::list');
-
-$routes->get('api/student/get/(:num)', 'StudentController::get/$1');
-
-$routes->post('api/student/update/(:num)', 'StudentController::update/$1');
-
-$routes->delete('api/student/delete/(:num)', 'StudentController::delete/$1');

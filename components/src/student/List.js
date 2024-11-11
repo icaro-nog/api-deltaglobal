@@ -10,12 +10,14 @@ export default class List extends Component {
       listStudent:[]
     }
   }
-
+  
   componentDidMount(){
+    
+    const token = localStorage.getItem('auth_token');
 
     console.log('Mounted app Component List')
 
-    axios.get('http://localhost:8080/api/student/list')
+    axios.get('http://localhost:8080/api/student/list', { headers: { Authorization: `Bearer ${token}` }})
       .then(response => {
         console.log(response.data)
         this.setState({listStudent:response.data.data})
@@ -53,7 +55,7 @@ export default class List extends Component {
                       <td>{data.email}</td>
                       <td>{data.address}</td>
                       <td>{data.phone}</td>
-                      <td> <img src={'uploads/' + data.photo} width="30" height="50" /> </td>
+                      <td> <img src={data.photo} width="30" height="50" /> </td>
                       <td>
                         <Link to={"/student/edit/"+data.id} class="btn btn-light mr-3"> Editar </Link>
                         <Link onClick={()=>this.onClickDelete(i, data.id)} class="btn btn-danger"> Deletar </Link>
@@ -71,13 +73,15 @@ export default class List extends Component {
   }
 
   onClickDelete(i, id){
-    var yes = confirm('tem certeza?????')
+    var yes = confirm('Deseja confirmar a ação?')
 
     if(yes == true){
 
+      const token = localStorage.getItem('auth_token');
+
       const urlDelete = 'http://localhost:8080/api/student/delete/' + id
 
-      axios.delete(urlDelete)
+      axios.delete(urlDelete, { headers: { Authorization: `Bearer ${token}` }})
             .then(response => {
 
                 const res = response.data

@@ -25,6 +25,8 @@ const Form = () => {
           [name]: value
       }));
   };
+  
+  const token = localStorage.getItem('auth_token');
 
   const onClickSave = () => {
     const baseUrl = 'http://localhost:8080/api/student/create';
@@ -39,7 +41,8 @@ const Form = () => {
     console.log('formDataInstance')
     console.log(formDataInstance)
 
-    axios.post(baseUrl, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data' } })
+
+    axios.post(baseUrl, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` } })
       .then(response => {
         alert(response.data.message)
         window.location = 'http://localhost:8080/student#/student/index';

@@ -23,12 +23,13 @@ const Edit = () => {
     })
     
     const { id } = useParams();
+    const token = localStorage.getItem('auth_token');
     
     useEffect(() => {
 
         const url = 'http://localhost:8080/api/student/get/' + id
 
-        axios.get(url)
+        axios.get(url, { headers: { Authorization: `Bearer ${token}` }})
             .then( response => {
 
                 const res = response.data
@@ -82,7 +83,7 @@ const Edit = () => {
 
         formDataInstance.append('_method', 'put');
         
-        axios.post(url, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data' } })
+        axios.post(url, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` } })
             .then(response => {
                 alert(response.data.message)
                 window.location.reload();

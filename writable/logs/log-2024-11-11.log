@@ -1,0 +1,34 @@
+CRITICAL - 2024-11-11 20:00:29 --> ErrorException: Undefined array key "Authorization"
+[Method: GET, Route: api/student/list]
+in APPPATH/Filters/AuthFilter.php on line 33.
+ 1 APPPATH/Filters/AuthFilter.php(33): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Filters/Filters.php(203): App\Filters\AuthFilter->before()
+ 3 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore()
+ 4 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-11 22:18:38 --> Error: Firebase\JWT\JWT::decode(): Argument #3 ($headers) cannot be passed by reference
+[Method: GET, Route: api/student/list]
+in APPPATH/Filters/AuthFilter.php on line 50.
+ 1 SYSTEMPATH/Filters/Filters.php(203): App\Filters\AuthFilter->before()
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore()
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
+CRITICAL - 2024-11-11 22:18:47 --> Error: Firebase\JWT\JWT::decode(): Argument #3 ($headers) cannot be passed by reference
+[Method: GET, Route: api/student/list]
+in APPPATH/Filters/AuthFilter.php on line 50.
+ 1 SYSTEMPATH/Filters/Filters.php(203): App\Filters\AuthFilter->before()
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore()
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/inogueira/projetos/CRUD de Alunos/public/index.php')
