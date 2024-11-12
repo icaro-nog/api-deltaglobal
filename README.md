@@ -96,4 +96,30 @@ http://localhost:8080/login
 * Exclusão: ``` http://localhost:8080/student ```
 
 ## Pontuação de melhorias
+* Gerar imagem da aplicação em Docker para facilitar a testagem
+* Captura de logs para coleta de possíveis erros
+* Sanitização dos campos dos formulários
+* Ter uma rotina de testes, pode ser utilizado o PHPUnit
+* Retorno de avisos ao usuário, caso não seja preenchido algum campo do formulário
+* Nos formulários, realizar validação para que apenas sejam enviados arquivos de imagem e com tamanho predefinido
+* Paginação da listagem de registros
+* Inserir o recurso de desativar um aluno, em alguns contextos isso pode ser útil, ex.: academia.
+  Em relação a LGPD, caso as informações sirvam para fins fiscais, é necessário manter os registros no banco de dados por mais tempo para possíveis auditorias.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
