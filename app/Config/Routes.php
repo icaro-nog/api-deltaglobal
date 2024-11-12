@@ -6,12 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-
- // agrupar
- // bloquear acesso a rotas protegidas
-
 $routes->group('api', ['filter' => 'auth'], static function($routes) {
-    $routes->get('student/test', 'StudentController::test');
     
     $routes->post('student/create', 'StudentController::create');
     

@@ -1,9 +1,4 @@
-// criar formulário de login com js
-// controller com login para recebimento da requisição feita com axios
-// bloqueio de acesso as rotas, se não estiver logado ok
-
 import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -25,39 +20,27 @@ const Register = () => {
 
         const url = 'http://localhost:8080/api/register/create';
 
-        // const formDataInstance = new FormData();
-        // formDataInstance.append('user', formData.fieldUser);
-        // formDataInstance.append('password', formData.fieldPassword);
-
         const data = {
             email: formData.fieldEmail,
             password: formData.fieldPassword
         }
-
-        // formDataInstance.append('_method', 'put');
         
         axios.post(url, data)
             .then(response => {
-                // alert(response)
-                console.log(response)
-                // window.location.reload();
-
-                // mandar pra página de listagem
-                // com session ativa no privateRoute.js
-
-
+                alert(response.data.message)
+                window.location.href = '/login';
             })
             .catch(error => {
-                alert('Erro 500' + error)
+                alert('Erro ' + error)
             })
 
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <div className="container d-flex justify-content-center align-items-center">
             <div className="card" style={{ width: '100%', maxWidth: '400px' }}>
                 <div className="card-body">
-                    <h5 className="card-title text-center mb-4">Login</h5>
+                    <h5 className="card-title text-center mb-4">Novo login</h5>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">E-mail</label>
                         <input

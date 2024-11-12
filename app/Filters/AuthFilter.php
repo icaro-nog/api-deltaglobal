@@ -12,6 +12,13 @@ use Firebase\JWT\Key;
 
 class AuthFilter implements FilterInterface
 {
+
+    protected $key;
+
+    public function __construct(){
+        $this->key = '9b9b6435e10480f16fcff317470cfed5c6c9fa85b0e0effac9d38972be2083f9';
+    }
+
     /**
      * Do whatever processing this filter needs to do.
      * By default it should not return anything during
@@ -27,38 +34,26 @@ class AuthFilter implements FilterInterface
      *
      * @return RequestInterface|ResponseInterface|string|void
      */
-    // Método que é executado antes de acessar a rota protegida
     public function before(RequestInterface $request, $arguments = null)
     {
-        // Pegando o token JWT no cabeçalho Authorization
         $authHeader = $request->getHeaderLine('Authorization');
 
-        log_message('debug', $request->getHeaderLine('Authorization'));
-
         if (!$authHeader) {
-            // Retorna erro 401 se o cabeçalho Authorization não estiver presente
-            return Services::response()->setStatusCode(401)->setJSON(['error' => 'Token não fornecido', 'req' => $request->headers()]); // parei aqui
+            return Services::response()->setStatusCode(401)->setJSON(['error' => 'Token not provided']);
         }
 
-        // Remover o "Bearer " da string do token
         $token = str_replace('Bearer ', '', $authHeader);
 
         try {
-            // Chave secreta usada para codificar o token no backend
-            $key = 'SECRET_KEY'; // Substitua por uma chave secreta segura
+            $decoded = JWT::decode($token, new Key($this->key, 'HS256'));
 
-            // Decodificando o token com a chave secreta e o algoritmo HS256
-            $decoded = JWT::decode($token, new Key($key, 'HS256'));
-
-            // Armazenando as informações do usuário no objeto Request, para uso posterior
             $request->user = $decoded->user;
 
         } catch (\Exception $e) {
-            // Retorna erro 401 se o token for inválido ou expirado
-            return Services::response()->setStatusCode(403)->setJSON(['error' => 'Token inválido ou expirado', 'req' => $request->getHeaderLine('Authorization')]);
+            return Services::response()->setStatusCode(401)->setJSON(['error' => 'Invalid or expired token']);
         }
 
-        return true; // Se o token for válido, a requisição segue normalmente
+        return true;
     }
 
     /**

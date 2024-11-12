@@ -38,17 +38,13 @@ const Form = () => {
     formDataInstance.append('address', formData.fieldAddress);
     formDataInstance.append('photo', file);
 
-    console.log('formDataInstance')
-    console.log(formDataInstance)
-
-
     axios.post(baseUrl, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` } })
       .then(response => {
         alert(response.data.message)
-        window.location = 'http://localhost:8080/student#/student/index';
+        window.location = 'http://localhost:8080/student';
       })
       .catch(error => {
-        alert('Erro 500' + error)
+        alert('Error ' + error)
       })
   }
 
@@ -111,7 +107,8 @@ const Form = () => {
         <div class="col-md-6 mb-5">
           <label for="photo">Foto</label>
           <br/>
-          <input type="file" 
+          <input type="file"  
+            accept="image/png, image/jpeg, image/jpg"
             onChange={handleFileSelect}
             id='fieldPhoto'
             name='fieldPhoto'

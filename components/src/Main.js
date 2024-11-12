@@ -32,15 +32,6 @@ export default class Main extends Component {
                                 element={
                                     <PrivateRoute>
                                         <Nav />
-                                    </PrivateRoute>
-                                }
-                            />
-
-                            <Route 
-                                path="/student/index"
-                                element={
-                                    <PrivateRoute>
-                                        <Nav />
                                         <List />
                                     </PrivateRoute>
                                 }

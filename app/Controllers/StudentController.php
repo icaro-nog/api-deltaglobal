@@ -2,10 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\StudentModel;
-use CodeIgniter\Files\File;
 use Exception;
-
-use function Psy\debug;
 
 class StudentController extends Controller
 {
@@ -22,14 +19,6 @@ class StudentController extends Controller
     public function index()
     {
         return view('student');
-    }
-
-    public function test(){
-
-        $data = $this->student->findAll();
-
-        return json_encode($data);
-
     }
 
     public function list(){
@@ -109,7 +98,7 @@ class StudentController extends Controller
             
             $data = $this->student->find($id);
 
-            $data['photo'] = 'uploads/' . $data['photo'];
+            $data['photo'] = '/uploads/' . $data['photo'];
 
             if($data){
                 $response = [

@@ -34,8 +34,6 @@ const Edit = () => {
 
                 const res = response.data
 
-                console.log(res)
-
                 if(res.success){
 
                     setFormData(prevState => ({
@@ -50,7 +48,7 @@ const Edit = () => {
                 }
             })
             .catch(error => {
-                alert("Error 500" + error)
+                alert("Error " + error)
             })
 
     }, []);
@@ -86,11 +84,9 @@ const Edit = () => {
         axios.post(url, formDataInstance, { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` } })
             .then(response => {
                 alert(response.data.message)
-                window.location.reload();
             })
             .catch(error => {
-                alert('Erro 500' + error)
-                console.log('catch')
+                alert('Erro ' + error)
             })
 
     };
@@ -145,9 +141,10 @@ const Edit = () => {
 
             <div class="row">
                 <div class="col-md-6 mb-5">
-                                <label for="fieldPhoto">Foto</label>
+                    <label for="fieldPhoto">Foto</label>
                     <br/>
                     <input type="file"
+                        accept="image/png, image/jpeg, image/jpg"
                         onChange={handleFileSelect}
                         name='fieldPhoto'
                     />

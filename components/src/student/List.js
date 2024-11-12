@@ -15,11 +15,8 @@ export default class List extends Component {
     
     const token = localStorage.getItem('auth_token');
 
-    console.log('Mounted app Component List')
-
     axios.get('http://localhost:8080/api/student/list', { headers: { Authorization: `Bearer ${token}` }})
       .then(response => {
-        console.log(response.data)
         this.setState({listStudent:response.data.data})
       })
       .catch(error => {
@@ -55,7 +52,7 @@ export default class List extends Component {
                       <td>{data.email}</td>
                       <td>{data.address}</td>
                       <td>{data.phone}</td>
-                      <td> <img src={data.photo} width="30" height="50" /> </td>
+                      <td> <img src={'/uploads/' + data.photo} width="30" height="50" /> </td>
                       <td>
                         <Link to={"/student/edit/"+data.id} class="btn btn-light mr-3"> Editar </Link>
                         <Link onClick={()=>this.onClickDelete(i, data.id)} class="btn btn-danger"> Deletar </Link>
@@ -96,7 +93,7 @@ export default class List extends Component {
                 }
             })
             .catch(error => {
-                alert('Erro 500' + error)
+                alert('Erro ' + error)
             })
 
     }
