@@ -17,4 +17,9 @@ O objetivo desse desafio técnicos é desenvolver um sistema para gerenciar info
 * Composer 2.7.9
 
 ## Instruções para execução local
-
+instalar composer
+instalar node
+instalar npm
+clonar projeto
+instalar dependencias
+<br>
